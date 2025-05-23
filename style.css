@@ -1,32 +1,238 @@
+@font-face {
+  font-family: 'Innovator Grotesk';
+  src: url('fonts/InnovatorGrotesk-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Innovator Grotesk';
+  src: url('fonts/InnovatorGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: medium;
+  font-display: swap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    font-family: 'Segoe UI', Arial, sans-serif;
-  }
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  background: #0F1011;
+  font-family: 'Innovator Grotesk', sans-serif;
+  color: #fff;
+}
+
+h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#loading-overlay {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0F1011;
+  transition: opacity 0.5s ease-out;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #ffffff;
+  animation: spin 1s linear infinite;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-gap: 24px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.main-header {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.a {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.b {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+
+.c {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.d {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.e {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.f {
+  grid-column: 1;
+  grid-row: 4;
+} 
+
+.nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.nav-left {
+  flex: 1;
+  color: #fff;
+  opacity: 0.7;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+}
+
+.nav-right-item {
+  margin-left: 2.2rem;
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.nav-right-item:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1020px) {
   .main-container {
-    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 24px;
+    width: 100%;
+    height: 100%;
   }
-  .main-card {
-    background: #4700df;
-    padding: 2rem 1.5rem;
-    margin: 2rem auto 0 auto;
-    display: inline-block;
-    min-width: 300px;
-    max-width: 500px;
+
+  .nav {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
   }
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 1.5rem 0 1rem 0;
-    color: #333;
+
+  .nav-left {
+   order: 2;
   }
-  p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0.5rem 0 1.5rem 0;
-    color: #444;
+
+  .nav-right {
+    order: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
   }
+
+  .a {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .b {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .c {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .d {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .e {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .f {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
